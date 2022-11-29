@@ -1,0 +1,9 @@
+__title__ = "regex-toolkit"
+__description__ = "Tools for building re and re2 expressions"
+__url__ = "https://github.com/yaphott/regex-toolkit"
+__version__ = "0.0.1"
+__build__ = 0x1
+__author__ = "yaphott"
+__author_email__ = "yaphott@proton.me"
+__license__ = "Apache 2.0"
+__copyright__ = "Copyright 2022 Nicholas Londowski"

@@ -1,0 +1,20 @@
+# Ignore everything
+*
+
+# Except
+!setup.py
+
+!regex_toolkit/
+!regex_toolkit/*
+
+!tests/
+!tests/*
+
+!LICENSE
+!NOTICE
+!README.md
+
+!.gitignore
+
+!.git/
+!.git/*

@@ -1,0 +1,10 @@
+# Ignore everything
+*
+
+# Except
+!test_methods.py
+
+!.gitignore
+
+!.git/
+!.git/*
