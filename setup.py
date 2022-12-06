@@ -21,14 +21,8 @@ This version of Regex-Toolkit requires at least Python {}.{}, but you're trying 
     )
     sys.exit(1)
 
-# Publish to PyPi using `python3 setup.py publish`
-if sys.argv[-1] == "publish":
-    os.system("python setup.py sdist bdist_wheel")
-    os.system("twine upload dist/*")
-    sys.exit()
 
-
-def _globals_from_exec(filepath: str) -> dict:
+def _globals_from_py(filepath: str) -> dict:
     __globals = {}
     with open(filepath, mode="r", encoding="utf-8") as rf:
         exec(rf.read(), __globals)
@@ -37,8 +31,18 @@ def _globals_from_exec(filepath: str) -> dict:
 
 
 here = os.path.abspath(os.path.dirname(__file__))
+version = _globals_from_py(os.path.join(here, "regex_toolkit", "__version__.py"))
+with open("README.md", mode="r", encoding="utf-8") as rf:
+    long_description = rf.read()
+
+# Publish to PyPi using 'python3 setup.py publish'
+if sys.argv[-1] == "publish":
+    os.system("python3 setup.py sdist bdist_wheel")
+    os.system("twine upload dist/*")
+    sys.exit()
 
 
+# Run tests
 if sys.argv[-1] == "test":
     import unittest
 
@@ -51,10 +55,6 @@ if sys.argv[-1] == "test":
     # Run the test suite
     test_runner.run(test_suite)
 
-version = _globals_from_exec(os.path.join(here, "regex_toolkit", "__version__.py"))
-
-with open("README.md", mode="r", encoding="utf-8") as rf:
-    long_description = rf.read()
 
 setuptools.setup(
     name=version["__title__"],
@@ -96,7 +96,7 @@ setuptools.setup(
     ],
     extras_require={},
     entry_points={},
-    keywords="regex-toolkit regex toolkit",
+    keywords=["re", "re2", "expression", "regex", "toolkit", "regex-toolkit"],
     project_urls={
         "Homepage": "https://github.com/yaphott/regex-toolkit",
     },

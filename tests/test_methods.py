@@ -181,7 +181,7 @@ class TestStringMethods(unittest.TestCase):
     def test_mask_span(self):
         text = "This is an example"
 
-        # Run test using different sequence types
+        # Run test using different acceptable sequence types
         indexes = (8, 8)
         for try_type, indexes_as_try_type in {
             tuple: indexes,
@@ -191,7 +191,7 @@ class TestStringMethods(unittest.TestCase):
             expected_text = "This is not an example"
             self.assertEqual(actual_text, expected_text)
 
-        # Run test using different sequence types
+        # Run test using different acceptable sequence types
         indexes = (5, 7)
         for try_type, indexes_as_try_type in {
             tuple: indexes,

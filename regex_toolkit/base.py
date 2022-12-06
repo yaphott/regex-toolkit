@@ -1,4 +1,4 @@
-from collections.abc import Sequence, Iterable
+from collections.abc import Iterable
 
 import string
 
@@ -207,12 +207,16 @@ class RegexToolkit:
         return tuple(RegexToolkit.iter_char_range(first_codepoint, last_codepoint))
 
     @staticmethod
-    def mask_span(text: str, span: Sequence, mask: str | None = None) -> str:
+    def mask_span(
+        text: str,
+        span: list[int] | tuple[int, int],
+        mask: str | None = None,
+    ) -> str:
         """Slice and Mask a String using a Span
 
         Args:
             text (str): Text to slice.
-            span (Sequence[int]): Domain of index positions (x1, x2) to mask from the text.
+            span (list[int] | tuple[int, int]): Domain of index positions (x1, x2) to mask from the text.
             mask (str, optional): Mask to insert when slicing. Defaults to None.
 
         Returns:
@@ -230,14 +234,14 @@ class RegexToolkit:
     @staticmethod
     def mask_spans(
         text: str,
-        spans: Iterable[Sequence[int]],
+        spans: Iterable[list[int] | tuple[int, int]],
         masks: Iterable[str] | None = None,
     ) -> str:
         """Slice and Mask a String using Multiple Spans
 
         Args:
             text (str): Text to slice.
-            spans (Iterable[Sequence[int]]): Domains of index positions (x1, x2) to mask from the text.
+            spans (Iterable[list[int] | tuple[int, int]]): Domains of index positions (x1, x2) to mask from the text.
             masks (Iterable[str], optional): Masks to insert when slicing. Defaults to None.
 
         Returns:

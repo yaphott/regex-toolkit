@@ -409,11 +409,11 @@ Slice and mask a string using a span.
 | :------------------------------- |
 | mask_span(text, span, mask=None) |
 
-| Parameters                |                                                           |
-| :------------------------ | :-------------------------------------------------------- |
-| **text**_(str)_           | Text to slice.                                            |
-| **span**_(Sequence[int])_ | Domain of index positions (x1, x2) to mask from the text. |
-| **mask**_(str \| None)_   | Mask to insert when slicing.                              |
+| Parameters                               |                                                           |
+| :--------------------------------------- | :-------------------------------------------------------- |
+| **text**_(str)_                          | Text to slice.                                            |
+| **span**_(list[int] \| tuple[int, int])_ | Domain of index positions (x1, x2) to mask from the text. |
+| **mask**_(str \| None)_                  | Mask to insert when slicing.                              |
 
 ```python
 rtk.mask_span(
@@ -435,11 +435,11 @@ Slice and mask a string using multiple spans.
 | :---------------------------------- |
 | mask_spans(text, spans, masks=None) |
 
-| Parameters                           |                                                            |
-| :----------------------------------- | :--------------------------------------------------------- |
-| **text**_(str)_                      | Text to slice.                                             |
-| **spans**_(Iterable[Sequence[int]])_ | Domains of index positions (x1, x2) to mask from the text. |
-| **masks**_(Iterable[str] \| None)_   | Masks to insert when slicing.                              |
+| Parameters                                          |                                                            |
+| :-------------------------------------------------- | :--------------------------------------------------------- |
+| **text**_(str)_                                     | Text to slice.                                             |
+| **spans**_(Iterable[list[int] \| tuple[int, int]])_ | Domains of index positions (x1, x2) to mask from the text. |
+| **masks**_(Iterable[str] \| None)_                  | Masks to insert when slicing.                              |
 
 Example:
 
